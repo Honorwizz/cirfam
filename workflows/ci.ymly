@@ -5,6 +5,7 @@ on:
     branches:
       - main
 
+
 jobs:
   query:
     runs-on: self-hosted
