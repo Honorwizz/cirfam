@@ -23,8 +23,8 @@ jobs:
 
       - name: Clone or update repository
         run: |
-          mkdir -p /home/radmin/rfam
-          cd /home/radmin/rfam
+          mkdir -p /home/rfam
+          cd /home/rfam
           if [ -d "cirfam" ]; then
             cd cirfam && git pull
           else
@@ -35,4 +35,4 @@ jobs:
         env:
           PYTHONPATH: ${{ env.PYTHONPATH }}
         run: |
-          python /home/radmin/rfam/cirfam/path/to/your/script.py
+          python /home/rfam/cirfam/script.py
