@@ -1,0 +1,22 @@
+name: Execute SQL Queries
+
+on:
+  push:
+    branches:
+      - main
+
+jobs:
+  query:
+    runs-on: self-hosted
+
+    steps:
+      - name: Checkout code
+        uses: actions/checkout@v2
+
+      - name: Install Python dependencies
+        run: |
+          python -m pip install pymysql
+
+      - name: Run SQL script
+        run: |
+          python path/to/your/script.py
