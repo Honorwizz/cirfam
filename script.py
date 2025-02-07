@@ -23,3 +23,9 @@ try:
 
 finally:
     connection.close()
+
+with open("output.txt", "w") as f:
+    for row in result:
+        f.write(str(row) + "\n")
+
+print("Результат сохранён в файл: output.txt")
