@@ -15,8 +15,14 @@ jobs:
 
       - name: Install Python dependencies
         run: |
-          python -m pip install pymysql
+          python -m pip install pymysql --target=myenv/lib/python3.12/site-packages/
+
+      - name: Set PYTHONPATH
+        run: |
+          echo "export PYTHONPATH=\$PYTHONPATH:$(pwd)/myenv/lib/python3.12/site-packages" >> $GITHUB_ENV
 
       - name: Run SQL script
+        env:
+          PYTHONPATH: ${{ env.PYTHONPATH }}
         run: |
           python path/to/your/script.py
